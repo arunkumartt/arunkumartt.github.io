@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arunkumar TT | Full-Stack Backend Developer</title>
+    <style>
+        /* --- CSS VARIABLES & DARK THEME --- */
+        :root {
+            --bg-color: #0f172a;       /* Dark Navy */
+            --card-bg: #1e293b;        /* Slate */
+            --text-main: #f1f5f9;      /* White-ish */
+            --text-muted: #94a3b8;     /* Grey */
+            --accent: #0ea5e9;         /* Django/Tech Blue/Teal */
+            --accent-hover: #38bdf8;
+            --font-main: 'Segoe UI', sans-serif;
+            --font-code: 'Courier New', Courier, monospace;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; padding: 0; }
+
+        /* --- LAYOUT UTILS --- */
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 5rem 0; border-bottom: 1px solid #334155; }
+        
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 { font-family: var(--font-code); color: var(--accent); }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        h2 { font-size: 2rem; margin-bottom: 2rem; }
+        .highlight { color: var(--accent); }
+        .subtitle { font-size: 1.2rem; color: var(--text-muted); display: block; margin-bottom: 1.5rem; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo { font-family: var(--font-code); font-weight: bold; font-size: 1.2rem; border: 1px solid var(--accent); padding: 5px 10px; border-radius: 4px;}
+        .nav-links a { margin-left: 2rem; font-size: 0.9rem; color: var(--text-muted); }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 650px; margin-bottom: 2rem; }
+        
+        .btn {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-family: var(--font-code);
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .btn:hover { background: rgba(14, 165, 233, 0.1); }
+        .btn-filled { background: var(--accent); color: var(--bg-color); font-weight: bold; }
+        .btn-filled:hover { background: var(--accent-hover); }
+
+        /* --- SKILLS GRID --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .skill-category h3 { font-size: 1.2rem; color: var(--text-main); margin-bottom: 1rem; }
+        .tech-tag {
+            display: inline-block;
+            background: #334155;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0 0.5rem 0.5rem 0;
+            font-family: var(--font-code);
+            color: #e2e8f0;
+        }
+        .highlight-tag { background: #4ade80; color: #0f172a; font-weight: bold; } /* Node.js Green */
+
+        /* --- EXPERIENCE --- */
+        .job { margin-bottom: 2rem; }
+        .job-header { display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 0.5rem; }
+        .job-title { font-weight: bold; font-size: 1.2rem; color: var(--text-main); }
+        .job-company { color: var(--accent); font-family: var(--font-code); }
+        .job-date { color: var(--text-muted); font-size: 0.9rem; font-family: var(--font-code); }
+        .job li { margin-bottom: 0.5rem; color: var(--text-muted); font-size: 1rem; position: relative; padding-left: 20px; }
+        .job li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
+
+        /* --- PROJECTS --- */
+        .project-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid transparent;
+            transition: transform 0.2s;
+        }
+        .project-card:hover { transform: translateY(-5px); border-color: #334155; }
+        
+        .project-header { display: flex; justify-content: space-between; align-items: flex-start; }
+        .project-links a { margin-left: 1rem; font-size: 1.2rem; }
+        .project-tech { margin-top: 1rem; display: flex; flex-wrap: wrap; }
+
+        /* --- CONTACT --- */
+        .contact-item { margin: 10px 0; font-size: 1.1rem; }
+        .contact-item i { color: var(--accent); width: 30px; }
+        
+        footer { text-align: center; padding: 3rem 0; color: var(--text-muted); font-size: 0.9rem; border: none; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <div class="nav-logo">AR</div>
+            <div class="nav-links">
+                <a href="#about"><span class="highlight">01.</span> About</a>
+                <a href="#experience"><span class="highlight">02.</span> Experience</a>
+                <a href="#projects"><span class="highlight">03.</span> Projects</a>
+                <a href="#contact"><span class="highlight">04.</span> Contact</a>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <span style="color: var(--accent); font-family: var(--font-code);">Hi, my name is</span>
+            <h1>Arunkumar TT.</h1>
+            <span class="subtitle">I build versatile and scalable backend systems.</span>
+            <p>
+                I am a Software Developer specializing in **Node.js** backend systems and modern web technologies, with a strong foundational background in **Python/Django**. I focus on API design, performance, and delivering clean, efficient code.
+            </p>
+            <div>
+                <a href="#contact" class="btn btn-filled">Hire Me</a>
+                <a href="https://github.com/arunkumartt" target="_blank" class="btn"><i class="fab fa-github"></i> GitHub</a>
+                <a href="www.linkedin.com/in/arunkumartt" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2><span class="highlight">01.</span> Experience</h2>
+            
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Software Developer (Backend)</span>
+                    <span class="job-date">May 2025 - Present</span>
+                </div>
+                <div class="job-company">GITBITZ Software Private Limited</div>
+                <ul>
+                    <li>Currently developing and maintaining scalable backend services and robust APIs using **Node.js** and related frameworks.</li>
+                    <li>Focusing on system architecture design, performance optimization, and reliable data management.</li>
+                    <li>Collaborating with cross-functional teams to integrate new features and solutions.</li>
+                </ul>
+            </div>
+            
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Junior Python Django Developer</span>
+                    <span class="job-date">Aug 2023 - April 2024</span>
+                </div>
+                <div class="job-company">MDIGITZ SOFT SOLUTIONS</div>
+                <ul>
+                    <li>Developed and maintained multiple Django-based web applications.</li>
+                    <li>Built reusable components and handled backend logic, user authentication, and database models.</li>
+                    <li>Collaborated with frontend developers to integrate UI with backend APIs using Git for version control.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Python Django Intern</span>
+                    <span class="job-date">Aug 2022 - Feb 2023</span>
+                </div>
+                <div class="job-company">CB Tech</div>
+                <ul>
+                    <li>Assisted in the development of internal Django tools for client use.</li>
+                    <li>Learned and implemented CRUD operations, Django admin, and template rendering.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2><span class="highlight">02.</span> Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Current Backend Stack</h3>
+                    <span class="tech-tag highlight-tag">Node.js</span>
+                    <span class="tech-tag highlight-tag">Express.js</span>
+                    <span class="tech-tag">JavaScript (ES6+)</span>
+                </div>
+                <div class="skill-category">
+                    <h3>Python & Frameworks</h3>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">Java</span>
+                </div>
+                <div class="skill-category">
+                    <h3>Frontend & Databases</h3>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">HTML5 / CSS3</span>
+                    <span class="tech-tag">Bootstrap</span>
+                    <span class="tech-tag">React Native</span>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <span class="tech-tag">Git / GitHub</span>
+                    <span class="tech-tag">Docker (Future Focus)</span>
+                    <span class="tech-tag">Figma</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2><span class="highlight">03.</span> Personal Projects</h2>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Project Empathetic</h3>
+                    <div class="project-links">
+                        <a href="https://github.com/arunkumartt" title="View Code"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <p style="color: var(--text-muted); margin-top: 10px;">
+                    A Django web app designed to connect donors and receivers for essential goods and services. 
+                    Includes an intuitive admin dashboard, location-based filters, and focuses on social impact and data privacy.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">Bootstrap</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Project Edugallery</h3>
+                    <div class="project-links">
+                        <a href="https://github.com/arunkumartt" title="View Code"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <p style="color: var(--text-muted); margin-top: 10px;">
+                    A Django-based e-commerce platform allowing students to sell handmade or digital products. 
+                    Features user authentication, product listings, shopping cart functionality, and admin management.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">E-Commerce</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">HTML/CSS</span>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="contact" style="border: none; text-align: center; padding: 6rem 0;">
+            <p style="color: var(--accent); font-family: var(--font-code);">04. What's Next?</p>
+            <h2 style="font-size: 3rem; margin: 1rem 0;">Get In Touch</h2>
+            <p style="max-width: 500px; margin: 0 auto 3rem; color: var(--text-muted);">
+                I am currently open to new opportunities. Feel free to reach out via email or phone.
+            </p>
+            
+            <div style="margin-bottom: 2rem;">
+                <div class="contact-item"><i class="fas fa-envelope"></i> arunkumartt05@gmail.com</div>
+                <div class="contact-item"><i class="fas fa-phone"></i> +91 9656804544</div>
+                <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Varam, Kerala</div>
+            </div>
+
+            <a href="mailto:arunkumartt05@gmail.com" class="btn btn-filled">Say Hello</a>
+        </section>
+
+        <footer>
+            <p>Designed & Built by Arunkumar TT</p>
+        </footer>
+    </div>
+</body>
+</html>
